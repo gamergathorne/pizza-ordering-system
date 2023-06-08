@@ -1,0 +1,15 @@
+.menu_cards{
+  max-width: 80rem;
+  margin: 5rem auto;
+}
+.menu_cards > p-card {
+  float: left;
+  margin: 1.5rem;
+}
+span.p-input-icon-right{
+    float: left;
+    margin: 0 1rem;
+    margin-right: 50%;
+    margin-bottom: 1rem;
+}
+

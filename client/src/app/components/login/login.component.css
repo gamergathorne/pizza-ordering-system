@@ -1,0 +1,10 @@
+span.p-input-icon-right{
+    float: left;
+    margin: 0 1rem;
+    margin-right: 50%;
+    margin-bottom: 1rem;
+}
+.form-container{
+  width: 15%;
+  margin: 0 auto;
+}

@@ -1,0 +1,18 @@
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+@import "primeflex/primeflex.css";
+@import "primeng/resources/themes/saga-green/theme.css";
+
+
+html, body { height: 100%; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color:var(--surface-section)!important; }
+home.ng-star-inserted, edit.ng-star-inserted, configure.ng-star-inserted {
+    display: inline;
+    order: 4;
+    flex: 0 0 95em;
+}
+.about, .skills, .work, .contact {
+    width: 100%;
+    padding-top: 5rem;
+}

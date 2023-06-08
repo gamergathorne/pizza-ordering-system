@@ -1,0 +1,36 @@
+<div class="menu_cards" >
+  <ng-container *ngFor="let item of items">
+  <p-card header="{{item.flavor}}" subheader="" [style]="{ width: '360px' }">
+    <p>
+      {{item.description}}
+    </p>
+    <ng-template pTemplate="footer">
+      <p-button label="Order Now" icon="pi pi-check" (click)="openOrder(item.flavor)"></p-button>
+    </ng-template>
+  </p-card>
+  </ng-container>
+</div>
+<p-dialog header="{{currentFlavor}} Pizza" [(visible)]="visible" [style]="{ width: '50vw' }">
+  <form [formGroup]="orderForm" (ngSubmit)="onSubmit()" class="text-center contact-form">
+    <div class="form-row">
+        <span class="p-input-icon-right">
+            <p-dropdown [options]="crusts" formControlName="Crust" [(ngModel)]="selectedCrust" optionLabel="Crust" optionLabel="name"></p-dropdown>
+        </span>
+      <span class="p-input-icon-right">
+        <input type="text" pInputText id="flavor" type="text" formControlName="Flavor" placeholder="Flavor" value="{{currentFlavor}}"required class="p-inputtext">
+        </span>
+      <span class="p-input-icon-right">
+            <p-dropdown [options]="sizes" formControlName="Size" optionLabel="Size" [(ngModel)]="selectedSize" optionLabel="name"></p-dropdown>
+        </span>
+      <span class="p-input-icon-right">
+    <p-inputNumber id="table_no" inputId="integeronly" formControlName="Table_No" [showButtons]="true"></p-inputNumber>
+        </span>
+    </div>
+    <div class="form-footer">
+      <button pButton label="Submit" type="submit" class="font-bold px-5 py-3 p-button-raised p-button-rounded white-space-nowrap"></button>
+    </div>
+  </form>
+</p-dialog>
+<p-toast></p-toast>
+
+

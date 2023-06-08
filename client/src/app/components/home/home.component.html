@@ -1,0 +1,32 @@
+<div class="orders_list">
+  <p-table [value]="orders"
+           [scrollable]="true"
+           scrollHeight="400px"
+           [tableStyle]="{'min-width': '50rem'}"
+           [rowHover]="true"
+           [globalFilterFields]="['Order_ID', 'Crust', 'Flavor', 'Size', 'Table_No']"
+  >
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th pSortableColumn="Order_ID">Order ID</th>
+        <th pSortableColumn="Crust">Crust</th>
+        <th pSortableColumn="Flavor">Flavor</th>
+        <th pSortableColumn="Size">Size</th>
+        <th pSortableColumn="Table_No">Table Number</th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-order>
+      <tr>
+        <td>{{ order.Order_ID }}</td>
+        <td>{{ order.Crust }}</td>
+        <td>{{ order.Flavor }}</td>
+        <td>{{ order.Size }}</td>
+        <td>{{ order.Table_No }}</td>
+        <td>
+          <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteOrder(order.Order_ID)"></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

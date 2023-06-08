@@ -1,0 +1,21 @@
+<div id="login" class="login">
+
+  <div class="text-700 text-center">
+    <div class="text-900 font-bold text-5xl mb-3">Pizza Ordering System Login</div>
+    <div class="text-700 text-2xl mb-5"></div>
+  </div>
+  <div class="form-container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="text-center contact-form">
+      <div class="form-row">
+        <span class="p-input-icon-right">
+            <input pInputText id="name" type="text" formControlName="username" placeholder="Username" required class="p-inputtext">
+        </span>
+        <span class="p-input-icon-right">
+            <input id="message" type="text" formControlName="password" class="form-row-message" placeholder="Password" class="p-inputtext">
+        </span>
+      </div>
+      <div class="form-footer">
+        <button pButton label="Submit" type="submit" class="font-bold px-5 py-3 p-button-raised p-button-rounded white-space-nowrap"></button>
+      </div>
+    </form>
+  </div>
