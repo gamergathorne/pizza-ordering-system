@@ -65,21 +65,17 @@ export class PizzaApiService {
         ).toPromise();
     }
 
-   DeleteMessage(input: any, uri: any) {
-      return this.http.delete(uri+"/"+input).pipe(
-          map(
-              (response) => {
-                  if(response) {
-                  console.log(response);
-                      this.user = input.value.username;
-                      return response;
-                  }
-                  return null;
-              },
-              (error: any) => {
-                  return error;
-              }
-          )
-      )
-  }
+   DeleteMessage(uri: any, input: any) {
+      this.http.delete(uri+"/"+input).subscribe({
+         next: data => {
+          console.log(data);
+             return true;
+         },
+         error: error => {
+             console.error('There was an error!', error);
+             return false;
+         }
+     });
+     return true;
+   }
 }

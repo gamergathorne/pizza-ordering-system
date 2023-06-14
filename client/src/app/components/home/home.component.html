@@ -1,11 +1,21 @@
 <div class="orders_list">
-  <p-table [value]="orders"
+  <p-table #ordersTable [value]="orders"
+           dataKey="Order_ID"
            [scrollable]="true"
            scrollHeight="400px"
            [tableStyle]="{'min-width': '50rem'}"
            [rowHover]="true"
            [globalFilterFields]="['Order_ID', 'Crust', 'Flavor', 'Size', 'Table_No']"
   >
+    <ng-template pTemplate="caption">
+      <div class="flex">
+        <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clear(ordersTable)"></button>
+        <span class="p-input-icon-left ml-auto">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="ordersTable.filterGlobal(this.filterResponse($event), 'contains')" placeholder="Search keyword" class="p-inputtext"/>
+                </span>
+      </div>
+    </ng-template>
     <ng-template pTemplate="header" let-columns>
       <tr>
         <th pSortableColumn="Order_ID">Order ID</th>
@@ -24,9 +34,11 @@
         <td>{{ order.Size }}</td>
         <td>{{ order.Table_No }}</td>
         <td>
-          <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteOrder(order.Order_ID)"></button>
+          <p-button icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteOrder(order.Order_ID)"></p-button>
         </td>
       </tr>
     </ng-template>
   </p-table>
 </div>
+<p-toast></p-toast>
+

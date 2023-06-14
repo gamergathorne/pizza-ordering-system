@@ -24,8 +24,8 @@ export class MenuComponent {
     currentFlavor: string;
     selectedCrust: string;
     selectedSize: string;
-    crusts = [{name:'Normal',code:'NORMAL'},{name:'Thin',code:'THIN'}];
-    sizes = [{name:'Small',code:'S'},{name:'Medium',code:'M'},{name:'Large',code:'L'},{name:'Extra Large',code:'XL'}];
+    crusts = [{name: 'Select Crust', code: ''}, {name:'Normal',code:'NORMAL'},{name:'Thin',code:'THIN'}];
+    sizes = [{name:'Select Size', code: ''},{name:'Small',code:'S'},{name:'Medium',code:'M'},{name:'Large',code:'L'},{name:'Extra Large',code:'XL'}];
 
     items = [
       {flavor: "Cheese",description:"Description of Cheese goes here."},
@@ -37,9 +37,9 @@ export class MenuComponent {
       {flavor: "Supreme",description:"Description of Supreme goes here."}
     ]
     orderForm = this.fb.group({
-          Crust: [''],
+          Crust: ["", [Validators.required, Validators.min(1)]],
           Flavor: [''],
-          Size: [''],
+          Size: ["", [Validators.required, Validators.min(1)]],
           Table_No: ['']
     })
 
